@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="kn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14532d">
+<title>ಗ್ರಾಮ ಸಹಾಯಕ · Grama Sahayak</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo" aria-hidden="true">🌾</span>
+    <div><h1 id="title">ಗ್ರಾಮ ಸಹಾಯಕ</h1><p id="tagline">Grama Sahayak</p></div></div>
+  <div class="top-actions">
+    <div class="langs" role="group" aria-label="Language">
+      <button data-lang="kn" class="chip on">ಕನ್ನಡ</button>
+      <button data-lang="en" class="chip">English</button>
+      <button data-lang="tcy" class="chip">ತುಳು β</button>
+    </div>
+    <button id="speakToggle" class="icon-btn" aria-pressed="true" title="Speak answers">🔊</button>
+  </div>
+</header>
+
+<main>
+  <p id="banner" class="banner" hidden></p>
+  <section id="log" class="log" aria-live="polite" aria-label="Conversation"></section>
+
+  <section id="confirmPanel" class="panel" hidden>
+    <h2 id="confirmTitle"></h2>
+    <div id="confirmFields"></div>
+    <div class="row">
+      <button id="confirmYes" class="btn primary"></button>
+      <button id="confirmNo" class="btn"></button>
+    </div>
+  </section>
+
+  <section id="quick" class="quick" hidden></section>
+
+  <details id="profileBox" class="fold" hidden>
+    <summary id="profileTitle"></summary>
+    <div id="profile" class="chips"></div>
+    <button id="forgetBtn" class="btn small danger"></button>
+  </details>
+
+  <details id="traceBox" class="fold" hidden>
+    <summary id="traceTitle"></summary>
+    <ol id="trace" class="trace"></ol>
+  </details>
+</main>
+
+<footer class="bar">
+  <button id="cam" class="icon-btn big" aria-label="Photo of a document" title="📷">📷</button>
+  <input id="file" type="file" accept="image/*" capture="environment" hidden>
+  <button id="mic" class="mic" aria-label="Speak" aria-pressed="false"><span id="micIcon">🎤</span></button>
+  <form id="form" class="typebox" autocomplete="off">
+    <input id="text" type="text" maxlength="600" enterkeyhint="send">
+    <button class="icon-btn" aria-label="Send">➤</button>
+  </form>
+</footer>
+<script src="app.js" defer></script>
+</body>
+</html>

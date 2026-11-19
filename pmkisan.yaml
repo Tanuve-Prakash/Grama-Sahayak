@@ -1,0 +1,24 @@
+id: pmkisan
+aliases:
+  en: [kisan, pm-kisan, pmkisan, "pm kisan", farmer, farming, agriculture, crop, "samman nidhi", "6000"]
+  kn: [ಕಿಸಾನ್, ರೈತ, ಕೃಷಿ, ಸಮ್ಮಾನ್, ಜಮೀನು, ಬೆಳೆ, ಪಿಎಂ-ಕಿಸಾನ್]
+documents: [aadhaar, land_record, bank_passbook, aadhaar_mobile]
+sections: {benefits: "pmkisan#benefits", apply: "pmkisan#how-to-apply", documents: "pmkisan#documents", overview: "pmkisan#overview"}
+office: pmkisan
+rules:
+  - id: owns_land
+    kind: required
+    source: "pmkisan#eligibility"
+    node: {fact: owns_land, op: eq, value: true, label: {en: "Family owns cultivable land in the land records", kn: "ಕುಟುಂಬದ ಹೆಸರಿನಲ್ಲಿ ಭೂ ದಾಖಲೆಯಲ್ಲಿ ಸಾಗುವಳಿ ಜಮೀನು ಇದೆ"}}
+  - id: no_income_tax
+    kind: exclusion
+    source: "pmkisan#exclusions"
+    node: {fact: income_tax_payer, op: eq, value: true, label: {en: "No family member pays income tax", kn: "ಕುಟುಂಬದಲ್ಲಿ ಯಾರೂ ಆದಾಯ ತೆರಿಗೆ ಪಾವತಿಸುವುದಿಲ್ಲ"}}
+  - id: no_govt_pension
+    kind: exclusion
+    source: "pmkisan#exclusions"
+    node: {fact: govt_employee_or_pensioner, op: eq, value: true, label: {en: "No government employee or pensioner in the family", kn: "ಕುಟುಂಬದಲ್ಲಿ ಸರ್ಕಾರಿ ನೌಕರ ಅಥವಾ ಪಿಂಚಣಿದಾರರಿಲ್ಲ"}}
+if_not_eligible:
+  en: "If the land is in a family member's name, that family member can apply. Check with the Raitha Samparka Kendra."
+  kn: "ಜಮೀನು ಕುಟುಂಬದ ಬೇರೆ ಸದಸ್ಯರ ಹೆಸರಿನಲ್ಲಿದ್ದರೆ ಅವರು ಅರ್ಜಿ ಸಲ್ಲಿಸಬಹುದು. ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರದಲ್ಲಿ ವಿಚಾರಿಸಿ."
+if_not_eligible_source: "pmkisan#eligibility"

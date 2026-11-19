@@ -1,0 +1,8 @@
+services:
+  grama:
+    build: {context: ., args: {OPTIONAL: "0"}}
+    ports: ["8000:8000"]
+    env_file: [{path: .env, required: false}]
+    read_only: true            # nothing is written to disk
+    tmpfs: [/tmp]
+    restart: unless-stopped

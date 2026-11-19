@@ -1,0 +1,28 @@
+id: gruhalakshmi
+aliases:
+  en: [gruha lakshmi, griha lakshmi, gruhalakshmi, grihalakshmi, "2000 a month", "2000 per month", guarantee, women head, yajamani]
+  kn: [ಗೃಹ ಲಕ್ಷ್ಮಿ, ಗೃಹಲಕ್ಷ್ಮಿ, ಯಜಮಾನಿ, ಮಹಿಳೆಗೆ ಹಣ, ಎರಡು ಸಾವಿರ]
+documents: [ration_card, aadhaar, bank_passbook, mobile]
+sections: {benefits: "gruhalakshmi#benefits", apply: "gruhalakshmi#how-to-apply", documents: "gruhalakshmi#documents", overview: "gruhalakshmi#overview"}
+office: gruhalakshmi
+rules:
+  - id: is_woman
+    kind: required
+    source: "gruhalakshmi#eligibility"
+    node: {fact: gender, op: eq, value: female, label: {en: "Applicant is a woman", kn: "ಅರ್ಜಿದಾರರು ಮಹಿಳೆ"}}
+  - id: head_of_family
+    kind: required
+    source: "gruhalakshmi#eligibility"
+    node: {fact: is_head_of_family, op: eq, value: true, label: {en: "Named as head of the family on the ration card", kn: "ಪಡಿತರ ಚೀಟಿಯಲ್ಲಿ ಕುಟುಂಬದ ಯಜಮಾನಿ ಎಂದು ಹೆಸರಿದೆ"}}
+  - id: has_ration_card
+    kind: required
+    source: "gruhalakshmi#eligibility"
+    node: {fact: ration_card, op: in, value: [bpl, apl, aay], label: {en: "Holds a BPL, APL or Antyodaya ration card", kn: "ಬಿಪಿಎಲ್, ಎಪಿಎಲ್ ಅಥವಾ ಅಂತ್ಯೋದಯ ಪಡಿತರ ಚೀಟಿ ಇದೆ"}}
+  - id: no_income_tax
+    kind: exclusion
+    source: "gruhalakshmi#exclusions"
+    node: {fact: income_tax_payer, op: eq, value: true, label: {en: "Family does not pay income tax or GST", kn: "ಕುಟುಂಬ ಆದಾಯ ತೆರಿಗೆ ಅಥವಾ ಜಿಎಸ್‌ಟಿ ಪಾವತಿಸುವುದಿಲ್ಲ"}}
+if_not_eligible:
+  en: "If a man is shown as head of the family on the ration card, ask the food office whether the card can be corrected."
+  kn: "ಪಡಿತರ ಚೀಟಿಯಲ್ಲಿ ಪುರುಷರ ಹೆಸರು ಯಜಮಾನ ಎಂದಿದ್ದರೆ, ಕಾರ್ಡ್ ಸರಿಪಡಿಸಲು ಸಾಧ್ಯವೇ ಎಂದು ಆಹಾರ ಇಲಾಖೆ ಕಚೇರಿಯಲ್ಲಿ ಕೇಳಿ."
+if_not_eligible_source: "gruhalakshmi#eligibility"

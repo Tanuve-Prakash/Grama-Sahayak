@@ -1,0 +1,39 @@
+id: pmmvy
+aliases:
+  en: [matru vandana, "matru vandan", pmmvy, maternity, pregnant, pregnancy, delivery, lactating, breastfeeding, newborn, anganwadi, mother and child]
+  kn: [ಮಾತೃ ವಂದನ, ಮಾತೃವಂದನ, ಗರ್ಭಿಣಿ, ಬಾಣಂತಿ, ಹೆರಿಗೆ, ಅಂಗನವಾಡಿ, ಮಾತೃತ್ವ, ತಾಯಿ]
+documents: [mcp_card, aadhaar, bank_passbook, husband_aadhaar]
+sections: {benefits: "pmmvy#benefits", apply: "pmmvy#how-to-apply", documents: "pmmvy#documents", overview: "pmmvy#overview"}
+office: pmmvy
+rules:
+  - id: is_woman
+    kind: required
+    source: "pmmvy#eligibility"
+    node: {fact: gender, op: eq, value: female, label: {en: "Applicant is a woman", kn: "ಅರ್ಜಿದಾರರು ಮಹಿಳೆ"}}
+  - id: pregnant_or_lactating
+    kind: required
+    source: "pmmvy#eligibility"
+    node: {fact: pregnant_or_lactating, op: eq, value: true, label: {en: "Pregnant or breastfeeding", kn: "ಗರ್ಭಿಣಿ ಅಥವಾ ಬಾಣಂತಿ"}}
+  - id: age_19
+    kind: required
+    source: "pmmvy#eligibility"
+    node: {fact: age, op: gte, value: 19, label: {en: "Aged 19 or above", kn: "19 ವರ್ಷ ಅಥವಾ ಮೇಲ್ಪಟ್ಟವರು"}}
+  - id: child_order
+    kind: required
+    source: "pmmvy#eligibility"
+    node:
+      label: {en: "First living child, or a second child who is a girl", kn: "ಮೊದಲ ಮಗು, ಅಥವಾ ಹೆಣ್ಣು ಎರಡನೇ ಮಗು"}
+      any:
+        - {fact: children_born_alive, op: eq, value: 0, label: {en: "This is the first child", kn: "ಇದು ಮೊದಲ ಮಗು"}}
+        - label: {en: "Second child, and the child is a girl", kn: "ಎರಡನೇ ಮಗು, ಮತ್ತು ಅದು ಹೆಣ್ಣು"}
+          all:
+            - {fact: children_born_alive, op: eq, value: 1, label: {en: "One living child already", kn: "ಈಗಾಗಲೇ ಒಂದು ಮಗು ಇದೆ"}}
+            - {fact: second_child_is_girl, op: eq, value: true, label: {en: "The second child is a girl", kn: "ಎರಡನೇ ಮಗು ಹೆಣ್ಣು"}}
+  - id: no_govt_job
+    kind: exclusion
+    source: "pmmvy#exclusions"
+    node: {fact: govt_employee_or_pensioner, op: eq, value: true, label: {en: "Not a regular government employee with paid maternity leave", kn: "ವೇತನ ಸಹಿತ ಹೆರಿಗೆ ರಜೆ ಪಡೆಯುವ ಕಾಯಂ ಸರ್ಕಾರಿ ನೌಕರರಲ್ಲ"}}
+if_not_eligible:
+  en: "Ask your Anganwadi worker or ASHA worker; they can check other maternity benefits such as the free institutional delivery support."
+  kn: "ನಿಮ್ಮ ಅಂಗನವಾಡಿ ಅಥವಾ ಆಶಾ ಕಾರ್ಯಕರ್ತೆಯನ್ನು ಕೇಳಿ; ಅವರು ಉಚಿತ ಹೆರಿಗೆ ಸಹಾಯದಂತಹ ಇತರ ಮಾತೃತ್ವ ಸೌಲಭ್ಯಗಳನ್ನು ಪರಿಶೀಲಿಸಬಹುದು."
+if_not_eligible_source: "pmmvy#eligibility"

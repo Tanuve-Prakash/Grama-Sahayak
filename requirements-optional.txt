@@ -1,0 +1,7 @@
+# Everything here is optional. The app runs fully offline without any of it.
+faster-whisper>=1.0        # server-side speech-to-text (Whisper)
+sentence-transformers>=3.0 # multilingual dense embeddings (better Kannada<->English retrieval)
+faiss-cpu>=1.8             # FAISS vector index (otherwise exact NumPy search, fine for this corpus size)
+easyocr>=1.7               # alternative OCR with Kannada model
+gTTS>=2.5                  # server-side Kannada text-to-speech (needs internet)
+pypdf>=4.0                 # ingest official guideline PDFs (python -m app.ingest)

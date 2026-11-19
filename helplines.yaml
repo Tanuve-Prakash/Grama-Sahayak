@@ -1,0 +1,24 @@
+# Numbers verified against public government / news sources (Nov 2026). Re-verify before deployment.
+general:
+  - {id: arogya104, number: "104", name: {en: "Arogya Sahayavani, Karnataka health helpline (24x7)", kn: "ಆರೋಗ್ಯ ಸಹಾಯವಾಣಿ, ಕರ್ನಾಟಕ (24x7)"}}
+  - {id: women181, number: "181", name: {en: "Women helpline", kn: "ಮಹಿಳಾ ಸಹಾಯವಾಣಿ"}}
+  - {id: emergency112, number: "112", name: {en: "Emergency (police, fire, ambulance)", kn: "ತುರ್ತು ಸೇವೆ (ಪೊಲೀಸ್, ಅಗ್ನಿಶಾಮಕ, ಆಂಬ್ಯುಲೆನ್ಸ್)"}}
+  - {id: elderly14567, number: "14567", name: {en: "Elderly helpline", kn: "ಹಿರಿಯ ನಾಗರಿಕರ ಸಹಾಯವಾಣಿ"}}
+by_scheme:
+  pmjay:
+    - {id: jay14555, number: "14555", name: {en: "Ayushman Bharat helpline", kn: "ಆಯುಷ್ಮಾನ್ ಭಾರತ್ ಸಹಾಯವಾಣಿ"}}
+    - {id: arogya104, number: "104", name: {en: "Arogya Sahayavani, Karnataka health helpline (24x7)", kn: "ಆರೋಗ್ಯ ಸಹಾಯವಾಣಿ, ಕರ್ನಾಟಕ (24x7)"}}
+  pmkisan:
+    - {id: kisan155261, number: "155261", name: {en: "PM-KISAN helpline", kn: "ಪಿಎಂ-ಕಿಸಾನ್ ಸಹಾಯವಾಣಿ"}}
+    - {id: kisan1800, number: "1800115526", name: {en: "PM-KISAN toll free", kn: "ಪಿಎಂ-ಕಿಸಾನ್ ಉಚಿತ ಕರೆ"}}
+  gruhalakshmi:
+    - {id: gl1902, number: "1902", name: {en: "Guarantee schemes helpline (Gruha Lakshmi)", kn: "ಗ್ಯಾರಂಟಿ ಯೋಜನೆ ಸಹಾಯವಾಣಿ (ಗೃಹ ಲಕ್ಷ್ಮಿ)"}}
+    - {id: glsms, number: "8147500500", sms: true, name: {en: "SMS your ration card number for status", kn: "ಸ್ಥಿತಿ ತಿಳಿಯಲು ಪಡಿತರ ಚೀಟಿ ಸಂಖ್ಯೆಯನ್ನು ಎಸ್‌ಎಂಎಸ್ ಮಾಡಿ"}}
+  pmmvy:
+    - {id: women181, number: "181", name: {en: "Women helpline", kn: "ಮಹಿಳಾ ಸಹಾಯವಾಣಿ"}}
+offices:
+  pmjay: {en: "the nearest empanelled hospital or Primary Health Centre (ask for the Arogya Mitra)", kn: "ಹತ್ತಿರದ ಅರ್ಹ ಆಸ್ಪತ್ರೆ ಅಥವಾ ಪ್ರಾಥಮಿಕ ಆರೋಗ್ಯ ಕೇಂದ್ರ (ಆರೋಗ್ಯ ಮಿತ್ರರನ್ನು ಕೇಳಿ)"}
+  pmkisan: {en: "the nearest Raitha Samparka Kendra or Grama One centre", kn: "ಹತ್ತಿರದ ರೈತ ಸಂಪರ್ಕ ಕೇಂದ್ರ ಅಥವಾ ಗ್ರಾಮ ಒನ್ ಕೇಂದ್ರ"}
+  gruhalakshmi: {en: "the nearest Grama One or Karnataka One centre", kn: "ಹತ್ತಿರದ ಗ್ರಾಮ ಒನ್ ಅಥವಾ ಕರ್ನಾಟಕ ಒನ್ ಕೇಂದ್ರ"}
+  pmmvy: {en: "your Anganwadi centre or ASHA worker", kn: "ನಿಮ್ಮ ಅಂಗನವಾಡಿ ಕೇಂದ್ರ ಅಥವಾ ಆಶಾ ಕಾರ್ಯಕರ್ತೆ"}
+  default: {en: "your nearest Grama Panchayat or taluk office", kn: "ನಿಮ್ಮ ಹತ್ತಿರದ ಗ್ರಾಮ ಪಂಚಾಯತಿ ಅಥವಾ ತಾಲೂಕು ಕಚೇರಿ"}

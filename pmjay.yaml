@@ -1,0 +1,22 @@
+id: pmjay
+aliases:
+  en: [ayushman, pm-jay, pmjay, "pm jay", health insurance, arogya karnataka, arogya, health card, hospital, treatment, ayushman card, vay vandana]
+  kn: [ಆಯುಷ್ಮಾನ್, ಆರೋಗ್ಯ ವಿಮೆ, ಆರೋಗ್ಯ ಕರ್ನಾಟಕ, ಆರೋಗ್ಯ ಕಾರ್ಡ್, ವಿಮೆ, ಚಿಕಿತ್ಸೆ, ಆಸ್ಪತ್ರೆ, ಪಿಎಂ-ಜೆಎವೈ, ವಯ ವಂದನ]
+documents: [aadhaar, ration_card, income_certificate, aadhaar_mobile]
+sections: {benefits: "pmjay#benefits", apply: "pmjay#how-to-apply", documents: "pmjay#documents", overview: "pmjay#overview"}
+office: pmjay
+rules:
+  - id: coverage_basis
+    kind: required
+    source: "pmjay#eligibility"
+    node:
+      label: {en: "Covered by any one of: BPL/Antyodaya card, kutcha house, income up to the BPL ceiling, or age 70+", kn: "ಈ ಯಾವುದಾದರೂ ಒಂದು ಇದ್ದರೆ ಅರ್ಹ: ಬಿಪಿಎಲ್/ಅಂತ್ಯೋದಯ ಕಾರ್ಡ್, ಮಣ್ಣಿನ ಮನೆ, ಬಿಪಿಎಲ್ ಮಿತಿಯೊಳಗಿನ ಆದಾಯ, ಅಥವಾ 70+ ವಯಸ್ಸು"}
+      any:
+        - {fact: ration_card, op: in, value: [bpl, aay], label: {en: "Holds a BPL or Antyodaya ration card", kn: "ಬಿಪಿಎಲ್ ಅಥವಾ ಅಂತ್ಯೋದಯ ಪಡಿತರ ಚೀಟಿ ಇದೆ"}}
+        - {fact: age, op: gte, value: 70, label: {en: "Aged 70 or above", kn: "70 ವರ್ಷ ಅಥವಾ ಮೇಲ್ಪಟ್ಟವರು"}}
+        - {fact: kutcha_house, op: eq, value: true, label: {en: "Lives in a kutcha house", kn: "ಮಣ್ಣಿನ / ಹುಲ್ಲಿನ ಮನೆಯಲ್ಲಿ ವಾಸ"}}
+        - {fact: annual_income, op: lte, value: 120000, label: {en: "Family income up to ₹1,20,000 a year", kn: "ಕುಟುಂಬದ ಆದಾಯ ವರ್ಷಕ್ಕೆ ₹1,20,000 ವರೆಗೆ"}}
+if_not_eligible:
+  en: "Families with an APL card may still get some subsidised treatment under Arogya Karnataka. Ask the hospital Arogya Mitra."
+  kn: "ಎಪಿಎಲ್ ಕಾರ್ಡ್ ಇರುವ ಕುಟುಂಬಗಳಿಗೆ ಆರೋಗ್ಯ ಕರ್ನಾಟಕದಲ್ಲಿ ಸ್ವಲ್ಪ ರಿಯಾಯಿತಿ ಚಿಕಿತ್ಸೆ ಸಿಗಬಹುದು. ಆಸ್ಪತ್ರೆಯ ಆರೋಗ್ಯ ಮಿತ್ರರನ್ನು ಕೇಳಿ."
+if_not_eligible_source: "pmjay#eligibility"
